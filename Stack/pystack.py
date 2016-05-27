@@ -8,36 +8,33 @@ class Stack(object):
     def __init__(self, size):
         self.size = size
         self.arr = []
-        self.current_length = 0
 
     def push(self, item):
-        if self.current_length == self.size:
+        if self.is_full():
             print "Stack is full."
         else:
             self.arr.append(item)
-            self.current_length += 1
 
     def pop(self):
-        if self.current_length == 0:
+        if self.is_empty():
             print "Stack is already empty."
         else:
             self.arr.pop()
-            self.current_length -= 1
 
     def peek(self):
-        if self.current_length == 0:
+        if self.is_empty():
             print "Stack is empty."
         else:
-            return self.arr[self.current_length-1]
+            return self.arr[len(self.arr)-1]
 
     def length(self):
-        return self.current_length
+        return len(self.arr)
 
     def is_empty(self):
-        return self.current_length == 0
+        return len(self.arr) == 0
 
     def is_full(self):
-        return self.size == self.current_length
+        return len(self.arr) == self.size
 
 if __name__ == '__main__':
     stack = Stack(10)
