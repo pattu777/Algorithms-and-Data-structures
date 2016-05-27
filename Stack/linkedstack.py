@@ -8,16 +8,27 @@ class Node(object):
         self.next_node = next_node
 
 class Stack(object):
-    def __init__(self, top=None):
+    def __init__(self, size=0, top=None):
+        self.size = size
         self.top = top
 
     def push(self, item):
-        new_node = Node(item)
-        if self.top is None:
-            self.top = new_node
+        nd = self.top
+        current_length = 0
+
+        while nd is not None:
+            nd = nd.next_node
+            current_length += 1
+
+        if current_length == self.size:
+            print "Stack is full."
         else:
-            new_node.next_node = self.top
-            self.top = new_node
+            new_node = Node(item)
+            if self.top is None:
+                self.top = new_node
+            else:
+                new_node.next_node = self.top
+                self.top = new_node
 
     def pop(self):
         if self.top is None:
@@ -35,7 +46,7 @@ class Stack(object):
     def is_empty(self):
         return self.top is None
 
-    def size(self):
+    def length(self):
         if self.top is None:
             return 0
         else:
@@ -47,11 +58,11 @@ class Stack(object):
             return size
 
 if __name__ == '__main__':
-    stack = Stack()
+    stack = Stack(10)
     for i in xrange(1, 11):
         stack.push(i)
 
-    print stack.size()
+    print stack.length()
     while not stack.is_empty():
         stack.peek()
         stack.pop()
