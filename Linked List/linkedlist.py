@@ -95,7 +95,7 @@ class LinkedList(object):
             while fast_ptr.get_next() is not None and fast_ptr.get_next().get_next() is not None:
                 slow_ptr = slow_ptr.get_next()
                 fast_ptr = fast_ptr.get_next().get_next()
-            print "Middle element is - ", slow_ptr.get_data()
+            return slow_ptr.get_data()
 
 if __name__ == "__main__":
     ll = LinkedList()
@@ -105,6 +105,6 @@ if __name__ == "__main__":
     ll.print_list()
     ll.reverse()
     ll.print_list()
-    ll.get_middle()
+    print ll.get_middle()
 
     sys.exit(0)

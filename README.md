@@ -1,1 +1,1 @@
-# Algorithms-and-Data-structures
+# Algorithms-and-Data-structuresSolution to common data structure problems in Java### Linked List* Insert an element at the head.* Insert an element at tail.* Remove an element from the head.* Search if an element is present in the linked list.* Reverse the singly linked list.* Merge two sorted linked lists.* Display all the elements.* Count the number of elements.### Binary Search Tree

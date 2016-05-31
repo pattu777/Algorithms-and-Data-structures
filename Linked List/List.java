@@ -139,6 +139,39 @@ public class List<T> {
     }
 
     /*
+     * Swap two nodes in a linked list.
+     *
+     * Time Complexity - O(n)
+     * Space Complexity - O(1)
+     */
+    public void swapNodes(T a, T b) {
+        Node<T> first = null;
+        Node<T> second = null;
+        Node<T> nodeOne = null;
+        Node<T> nodeTwo = null;
+
+        Node<T> tmp = this.head;
+
+        if(tmp == null) {
+            return;
+        }
+
+        while(tmp.next != null) {
+            if(tmp.next.data == a) {
+                first = tmp;
+            } else if(tmp.next.data == b) {
+                second = tmp;
+            }
+        }
+
+        tmp = nodeTwo.next;
+        first.next = nodeTwo;
+        nodeTwo.next = nodeOne.next;
+        second.next = nodeOne;
+        nodeOne.next = tmp;
+    }
+
+    /*
      * Display all the elements of the list.
      *
      * Time Complexity - O(n)
@@ -154,20 +187,36 @@ public class List<T> {
 
     public static void main(String[] args) {
 
-        List<Integer> nd = new List<Integer>();
-        nd.insertAtHead(12);
-        nd.insertAtHead(312);
-        nd.insertAtHead(-153);
-        nd.insertAtHead(678);
-        nd.insertAtHead(7854);
+        List<Integer> nd1 = new List<Integer>();
+        nd1.insertAtHead(1122);
+        nd1.insertAtHead(314);
+        nd1.insertAtHead(15);
+        nd1.insertAtHead(-68);
+        nd1.insertAtHead(-7854);
+        
+        List<Integer> nd2 = new List<Integer>();
+        nd2.insertAtHead(879);
+        nd2.insertAtHead(24);
+        nd2.insertAtHead(1);
+        nd2.insertAtHead(-98);
+        nd2.insertAtHead(-2114);
 
         //for(int i=1000; i<1010; i++)
           //  nd.insertAtEnd(i);
         
-        nd.display();
-
         System.out.println("Number of elements - " + nd.count());
-        nd.reverse();
+        mergeLists(nd1, nd2);
         nd.display();
+    }
+
+    /*
+     * Merge two sorted linked lists.
+     *
+     * Time Complexity - O(m + n)
+     * Space Complexity - O(1)
+     */
+    public Node<T> mergeLists(List<T> list1, List<T> list2) {
+        Node<T> tmp = null;
+        
     }
 }
