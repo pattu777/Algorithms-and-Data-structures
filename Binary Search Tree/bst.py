@@ -33,8 +33,26 @@ class BinarySearchTree(object):
                         nd = nd.right
 
 
-    def remove(self, item):
-        pass
+    def remove(self, node, item):
+        if node is None:
+            return
+        if item < node.data:
+            self.remove(node.left, item)
+        elif item > node.data:
+            self.remove(node.right, item)
+        else:
+            if node.left is None:
+                tmp = node.right
+                node = None
+
+            elif node.right is None:
+                tmp = node.left
+                node = None
+
+            else:
+                tmp = self.get_min(node.right)
+                node.data = tmp.data
+                node.right = self.remove(node.right, tmp.data)
 
     def iterative_search(self, item):
         if self.root is None:
@@ -57,9 +75,9 @@ class BinarySearchTree(object):
             if node.data == item:
                 return True
             elif node.data < item:
-                node = node.right
+                return self.recursive_search(node.right, item)
             else:
-                node = node.left
+                return self.recursive_search(node.left, item)
 
     def size(self, node):
         if node is None:
@@ -73,29 +91,23 @@ class BinarySearchTree(object):
         else:
             return 1 + max(self.depth(node.left), self.depth(node.right))
 
-    def inorder(self, nd):
-        if nd is None:
-            return
-        else:
-            self.inorder(nd.left)
-            print nd.data
-            self.inorder(nd.right)
+    def inorder(self, node):
+        if node:
+            self.inorder(node.left)
+            print node.data
+            self.inorder(node.right)
 
-    def preorder(self, nd):
-        if nd is None:
-            return
-        else:
-            print nd.data
-            self.preorder(nd.left)
-            self.preorder(nd.right)
+    def preorder(self, node):
+        if node:
+            print node.data
+            self.preorder(node.left)
+            self.preorder(node.right)
 
-    def postorder(self, nd):
-        if nd is None:
-            return
-        else:
-            self.postorder(nd.left)
-            self.postorder(nd.right)
-            print nd.data
+    def postorder(self, node):
+        if node:
+            self.postorder(node.left)
+            self.postorder(node.right)
+            print node.data
 
     def get_min(self, node):
         if node.left is None:
@@ -111,4 +123,5 @@ class BinarySearchTree(object):
                 return node.data
             else:
                 return self.get_max(node.right)
+
 

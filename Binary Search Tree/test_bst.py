@@ -14,9 +14,6 @@ class BstTest(unittest.TestCase):
         for x in self.arr:
             self.tree.iterative_insert(x)
 
-    def test_remove(self):
-        pass
-
     def test_search(self):
         self.assertTrue(self.tree.iterative_search(30))
         self.assertFalse(self.tree.recursive_search(self.tree.get_root(), 12312))
@@ -34,13 +31,21 @@ class BstTest(unittest.TestCase):
         self.assertEqual(self.tree.get_max(self.tree.get_root()), 500)
 
     def test_display(self):
-        print "Inorder Traversal: "
-        self.tree.inorder(self.tree.get_root())
-        print "Preorder Traversal: "
-        self.tree.preorder(self.tree.get_root())
-        print "Postorder Traversal: "
-        self.tree.postorder(self.tree.get_root())
+        pass
+        #print "Inorder Traversal: "
+        #self.tree.inorder(self.tree.get_root())
+        #print "Preorder Traversal: "
+        #self.tree.preorder(self.tree.get_root())
+        #print "Postorder Traversal: "
+        #self.tree.postorder(self.tree.get_root())
 
+    def test_remove(self):
+        self.tree.remove(self.tree.get_root(), 40)
+        #self.assertFalse(self.tree.iterative_search(40))
+        #self.tree.remove(self.tree.get_root(), 20)
+        #self.assertFalse(self.tree.iterative_searc(20))
+        print "Inorder Traversal after removing 40: "
+        self.tree.inorder(self.tree.get_root())
 
 if __name__ == '__main__':
     unittest.main()
