@@ -10,24 +10,28 @@ class Stack(object):
         self.arr = []
 
     def push(self, item):
+        """Push an item."""
         if self.is_full():
             print "Stack is full."
         else:
             self.arr.append(item)
 
     def pop(self):
+        """Pop an item."""
         if self.is_empty():
             print "Stack is already empty."
         else:
             self.arr.pop()
 
     def peek(self):
+        """Fetch the top item."""
         if self.is_empty():
             print "Stack is empty."
         else:
             return self.arr[len(self.arr)-1]
 
     def length(self):
+        """Number of items in the stack."""
         return len(self.arr)
 
     def is_empty(self):

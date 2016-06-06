@@ -3,7 +3,7 @@
 import sys
 import unittest
 
-from linkedlist import Node, LinkedList
+from linkedlist import Node, LinkedList, merge_lists
 
 class LinkedTestClass(unittest.TestCase):
     def __init__(self, *args, **kwargs):
@@ -39,6 +39,23 @@ class LinkedTestClass(unittest.TestCase):
         self.custom_list.insert_at_head(1001)
         self.assertEqual(self.custom_list.head.data, 1001)
 
+    def test_merge(self):
+        '''Test the merging of two sorted linked lists.'''
+        self.list1 = LinkedList()
+        self.list2 = LinkedList()
+        self.list3 = LinkedList()
+
+        for x in xrange(10):
+            self.list1.insert_at_tail(x)
+
+        for x in xrange(10, 20):
+            self.list2.insert_at_tail(x)
+
+        for x in xrange(20):
+            self.list3.insert_at_tail(x)
+
+        ll = merge_lists(self.list1, self.list2)
+        self.assertEqual(ll, self.list3)
 
 if __name__ == '__main__':
     unittest.main()

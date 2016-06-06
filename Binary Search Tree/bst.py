@@ -11,9 +11,11 @@ class BinarySearchTree(object):
         self.root = root
 
     def get_root(self):
+        '''Return the root node.'''
         return self.root
 
     def iterative_insert(self, item):
+        '''Insert an element into the bst.'''
         if self.root is None:
             self.root = Node(item)
         else:
@@ -34,6 +36,7 @@ class BinarySearchTree(object):
 
 
     def remove(self, node, item):
+        """Remove an element from bst."""
         if node is None:
             return
         if item < node.data:
@@ -55,6 +58,7 @@ class BinarySearchTree(object):
                 node.right = self.remove(node.right, tmp.data)
 
     def iterative_search(self, item):
+        '''Iteratively search an element.'''
         if self.root is None:
             return False
         else:
@@ -69,6 +73,7 @@ class BinarySearchTree(object):
             return False
 
     def recursive_search(self, node, item):
+        '''Recursively search an element.'''
         if node is None:
             return False
         else:
@@ -80,42 +85,49 @@ class BinarySearchTree(object):
                 return self.recursive_search(node.left, item)
 
     def size(self, node):
+        '''Fetch the number of items in the bst.'''
         if node is None:
             return 0
         else:
             return 1 + self.size(node.left) + self.size(node.right)
 
     def depth(self, node):
+        '''Find the maximum depth.'''
         if node is None:
             return 0
         else:
             return 1 + max(self.depth(node.left), self.depth(node.right))
 
     def inorder(self, node):
+        '''Inorder traversal'''
         if node:
             self.inorder(node.left)
             print node.data
             self.inorder(node.right)
 
     def preorder(self, node):
+        '''Pre-order Traversal.'''
         if node:
             print node.data
             self.preorder(node.left)
             self.preorder(node.right)
 
     def postorder(self, node):
+        '''Post-order Traversal.'''
         if node:
             self.postorder(node.left)
             self.postorder(node.right)
             print node.data
 
     def get_min(self, node):
+        '''Get the minimum value.'''
         if node.left is None:
             return node.data
         else:
             return self.get_min(node.left)
 
     def get_max(self, node):
+        '''Get the maximum value.'''
         if self.root is None:
             return "Tree is empty."
         else:
