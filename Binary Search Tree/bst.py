@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+import Queue
+
 class Node(object):
     def __init__(self, data=None, left=None, right=None):
         self.data = data
@@ -91,12 +93,12 @@ class BinarySearchTree(object):
         else:
             return 1 + self.size(node.left) + self.size(node.right)
 
-    def depth(self, node):
+    def max_depth(self, node):
         '''Find the maximum depth.'''
         if node is None:
             return 0
         else:
-            return 1 + max(self.depth(node.left), self.depth(node.right))
+            return 1 + max(self.max_depth(node.left), self.max_depth(node.right))
 
     def inorder(self, node):
         '''Inorder traversal'''
@@ -135,5 +137,83 @@ class BinarySearchTree(object):
                 return node.data
             else:
                 return self.get_max(node.right)
+
+
+    def level_order_traversal(self):
+        """Perform a BFS or level-order traversal of the tree."""
+        if self.root is None:
+            print "Tree is empty."
+        else:
+            my_q = Queue.Queue()
+            nd = self.root
+            
+            # Insert the root element into the Queue.
+            my_q.put(nd)
+
+            while not my_q.empty():
+                current = my_q.get()
+
+                print "%d " % current.data,
+                if current.left is not None:
+                    my_q.put(current.left)
+                if current.right is not None:
+                    my_q.put(current.right)
+
+
+    def level_width(self, node, k):
+        """Return the number of nodes in level k."""
+        if node is None:
+            return 0
+        elif k == 1:
+            return 1
+        elif k > 1:
+            return self.level_width(node.left, k-1) + self.level_width(node.right, k-1)
+
+
+    def max_width(self):
+        """Return the maximum width of the tree."""
+        if self.root is None:
+            return 0
+        else:
+            nd = self.root
+            width = 0
+            height = self.max_depth(self.root)
+            for x in xrange(1, height+11):
+                lwidth = self.level_width(self.root, height-x)
+                if lwidth > width:
+                    width = lwidth
+
+            return lwidth
+
+    def nodes_at_distance(self, node, k):
+        """Print all nodes at distance k from the root."""
+        if node is None:
+            return
+
+        elif k == 0:
+            print "%d " % node.data,
+
+        else:
+            self.nodes_at_distance(node.left, k-1)
+            self.nodes_at_distance(node.right, k-1)
+
+
+    def kth_smallest(self, node, k):
+        """Kth smallest element of the bst."""
+        if k == 0:
+            print node.data
+            return
+        else:
+            kth_smallest(node.left)
+            kth_smallest(node.right)
+
+    def count_leafs(self, node):
+        """Count the number of leaf nodes."""
+        if node is None:
+            return 0
+        elif node.left is None and node.right is None:
+            return 1
+        else:
+            return self.count_leafs(node.left) + self.count_leafs(node.right)
 
 

@@ -24,9 +24,6 @@ class LinkedList(object):
         '''Return the head node.'''
         return self.head
 
-    def get_next(self):
-        pass
-
     def insert_at_head(self, data):
         '''Insert an element at the head of the list.'''
         ptr = Node(data)
@@ -111,6 +108,175 @@ class LinkedList(object):
                 slow_ptr = slow_ptr.get_next()
                 fast_ptr = fast_ptr.get_next().get_next()
             return slow_ptr.get_data()
+
+    def rotate(self, k):
+        """Left rotate the linked list by k items."""
+        if self.head is None or k == 0:
+            return
+        else:
+            current = self.head
+            prev_head = self.head
+            prev = None
+            count = 0
+
+            # Skip through the first k items and fetch the last one.
+            while current is not None and count < k:
+                prev = current
+                current = current.next_node
+                count += 1
+
+            # Make the current node as head.
+            self.head = current
+
+            # Fetch the end node.
+            while current.next_node is not None:
+                current = current.next_node
+
+            # Point the next pointer of the end node to the previous head
+            current.next_node = prev_head
+
+            # Make the next pointer of prev node to None.
+            prev.next_node = None
+
+    def make_loop(self):
+        """Make a loop in a linked list. Point the last node to the second node."""
+        if self.head is not None:
+            nd = self.head
+            while nd.next_node is not None:
+                nd = nd.next_node
+
+            nd.next_node = self.head.next_node
+
+    def detect_loop(self):
+        """Detect a loop in a singly linked list."""
+        slow_ptr = self.head
+        fast_ptr = self.head
+
+        while slow_ptr and fast_ptr and fast_ptr.next_node:
+            slow_ptr = slow_ptr.next_node
+            fast_ptr = fast_ptr.next_node.next_node
+
+            if slow_ptr == fast_ptr:
+                return True
+
+        return False
+
+    def remove_loop(self):
+        pass
+
+    def kth_from_head(self, k):
+        """Return the kth node from the head."""
+        if self.head is not None and k != 0:
+            nd = self.head
+            count = 0
+            while nd is not None:
+                count += 1
+                if count == k:
+                    return nd.data
+                nd = nd.next_node
+
+            if count < k:
+                print "K is out of range"
+
+
+    def kth_from_end(self, k):
+        """Return the kth node from end."""
+        if self.head is not None and k != 0:
+            nd = self.head
+            count = 0
+            num_nodes = self.size()
+            while nd is not None:
+                count += 1
+                if count == num_nodes-k+1:
+                    return nd.data
+                nd = nd.next_node
+
+    def kth_from_tail(self, k):
+        """Return the kth node from end using two pointers."""
+        if self.head is not None and k != 0:
+            ptr1 = ptr2 = self.head
+            count = 0
+            while count != k:
+                ptr1 = ptr1.next_node
+                count += 1
+            
+            while ptr1 is not None:
+                ptr1 = ptr1.next_node
+                ptr2 = ptr2.next_node
+
+            return ptr2.data    
+
+
+    def delete(self):
+        """Delete the entire linked list.
+
+        Method 1:
+        =========
+        if head is not None:
+            Traverse the list node by node.
+            Make each individual node None.
+            
+        Method 2:
+        =========
+        if head is not None:
+            Make head None
+
+        """
+        if self.head is not None:
+            self.head = None
+
+    def count_item(self, item):
+        """Count the number of times an item occurs in the list."""
+        if self.head is None:
+            return 0
+        else:
+            nd = self.head
+            count = 0
+            while nd is not None:
+                if nd.data == item:
+                    count += 1
+                nd = nd.next_node
+
+            return count
+            
+
+    def is_pallindrome(self):
+        """Check if the linked list is a pallindrome or not."""
+        if self.head is None:
+            return True
+        else:
+            val = True
+            # Get the size of the linked list.
+            count = self.size()
+
+            # Find the middle element.
+            middle = self.get_middle()
+
+            # Reverse the first half of the linked list.
+            beg_second = middle.next_node
+            middle.next_node = None
+            self.reverse(self.head)
+
+            ptr1 = self.head
+            ptr2 = beg_second
+
+            while ptr1 and ptr2:
+                if ptr1.data != ptr2.data:
+                    val = False
+                    break
+
+            # Reverse back the first half.
+            self.reverse(self.head)
+
+            # Find the last element of the first half.
+            nd = self.head
+            while nd.next_node is not None:
+                nd = nd.next_node
+
+            # Link the first and second half.
+            nd.next_node = beg_second
+
+            return val
 
 def merge_lists(ll1, ll2):
     '''Merge two sorted linked lists.'''

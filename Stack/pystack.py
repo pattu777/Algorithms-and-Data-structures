@@ -5,7 +5,7 @@
 import sys
 
 class Stack(object):
-    def __init__(self, size):
+    def __init__(self, size=0):
         self.size = size
         self.arr = []
 
@@ -39,19 +39,3 @@ class Stack(object):
 
     def is_full(self):
         return len(self.arr) == self.size
-
-if __name__ == '__main__':
-    stack = Stack(10)
-    for i in xrange(0, 10):
-        stack.push(i)
-
-    print stack.length()
-    print stack.is_empty()
-    print stack.is_full()
-
-    while not stack.is_empty():
-        print stack.peek()
-        stack.pop()
-
-    sys.exit(0)
-

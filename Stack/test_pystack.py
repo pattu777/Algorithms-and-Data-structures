@@ -4,6 +4,7 @@ import sys
 import unittest
 
 from pystack import Stack
+from problems import is_balanced, reverse_string
 
 class TestStack(unittest.TestCase):
     def __init__(self, *args, **kwargs):
@@ -31,6 +32,24 @@ class TestStack(unittest.TestCase):
         self.stack.pop()
         self.assertEqual(self.stack.peek(), 8)
         self.assertEqual(self.stack.length(), 9)
+
+    def test_paranthesis(self):
+        """Test if a set of paranthesis is balanced or not."""
+        self.assertTrue(is_balanced("(((())))"))
+        self.assertFalse(is_balanced("(("))
+        self.assertTrue(is_balanced("()()()"))
+        self.assertFalse(is_balanced(")"))
+        self.assertTrue(is_balanced("()(())(((())))"))
+        self.assertTrue(is_balanced("[()]{}{[()()]()}"))
+        self.assertFalse(is_balanced("[(])"))
+        self.assertFalse(is_balanced("}"))
+
+    def test_reverse(self):
+        self.assertEqual("abcde", reverse_string("edcba"))
+        self.assertEqual("1", reverse_string("1"))
+        self.assertEqual("", reverse_string(""))
+        self.assertFalse("123412131" == reverse_string("12341231"))
+        self.assertEqual("anna", reverse_string("anna"))
 
 if __name__ == '__main__':
     unittest.main()

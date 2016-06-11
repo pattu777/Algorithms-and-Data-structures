@@ -14,7 +14,7 @@ class Queue(object):
         self.front = front
         self.rear = rear
 
-    def enqueue(self, item):
+    def put(self, item):
         nd = Node(item)
         if self.rear is None:
             self.rear = nd
@@ -23,7 +23,7 @@ class Queue(object):
             self.rear.next_node = nd
             self.rear = nd
 
-    def dequeue(self):
+    def get(self):
         if self.front is None:
             print "Queue is empty."
         else:
@@ -44,9 +44,9 @@ class Queue(object):
 if __name__ == '__main__':
     queue = Queue()
     for i in xrange(1, 11):
-        queue.enqueue(i)
+        queue.put(i)
 
     while not queue.is_empty():
-        queue.dequeue()
+        queue.get()
 
     sys.exit(0)

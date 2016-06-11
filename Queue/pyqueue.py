@@ -9,14 +9,14 @@ class Queue(object):
         self.size = max_size
         self.arr = []
 
-    def enqueue(self, item):
+    def put(self, item):
         '''Enqueue an element.'''
         if self.is_full():
             print "Queue is full."
         else:
             self.arr.append(item)
 
-    def dequeue(self):
+    def get(self):
         '''Pop an item.'''
         if self.is_empty():
             print "Queue is empty."
@@ -48,10 +48,10 @@ class Queue(object):
 if __name__ == '__main__':
     queue = Queue(10)
     for i in xrange(1, 11):
-        queue.enqueue(i)
+        queue.put(i)
 
     while not queue.is_empty():
         queue.front()
-        queue.dequeue()
+        queue.get()
 
     sys.exit(0)
