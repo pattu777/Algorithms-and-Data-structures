@@ -59,20 +59,56 @@ class SortingAlgos(object):
         pass
 
 
-    def partition(self):
+    def partition(self, low, high):
         """Return a pivot element for Quicksort."""
-        pass
+        key = self.arr[high]
+        pivot = low
+        for i in xrange(low, high):
+            if self.arr[i] <= key:
+                self.arr[i], self.arr[pivot] = self.arr[pivot], self.arr[i]
+                pivot += 1
+
+        self.arr[pivot], self.arr[high] = self.arr[high], self.arr[pivot]
+        return pivot
 
 
-    def quick_sort(self, low, high):
+    def quick_sort_inplace(self, low, high):
         """
         Time Complexity: O(nlogn)
+        Space Complexity: O(1)
         """
         if low < high:
             pivot = self.partition(low, high)
-            self.quick_sort(low, pivot-1)
-            self.quick_sort(pivot+1, high)
+            self.quick_sort_inplace(low, pivot-1)
+            self.quick_sort_inplace(pivot+1, high)
 
+
+    def quick_sort_space(self, data):
+        """
+        Quick sort.
+
+        * Easy to understand.
+        * Consumes more space.
+        * Less efficient.
+        """
+        if len(data) > 1:
+            less = []
+            equal = []
+            greater = []
+            pivot = data[0]
+
+            for x in data:
+                if x < pivot:
+                    less.append(x)
+                elif x == pivot:
+                    equal.append(x)
+                else:
+                    greater.append(x)
+
+            return self.quick_sort_space(less) + equal + self.quick_sort_space(greater)
+
+        else:
+            return data
 
     def heap_sort(self):
         """
@@ -116,10 +152,14 @@ class SortingTest(unittest.TestCase):
             self.assertEqual(sorted(arr), reversed_arr)
 
 
-    def test_quick_sort(self):
+    def test_quick_sort_inplace(self):
         for arr in self.test_arr:
             sort = SortingAlgos(arr=arr)
-            reversed_arr = sort.quick_sort()
+
+            sort.quick_sort_inplace(0, len(arr)-1)
+            self.assertEqual(sorted(arr), sort.arr)
+
+            reversed_arr = sort.quick_sort_space(arr)
             self.assertEqual(sorted(arr), reversed_arr)
 
     """
