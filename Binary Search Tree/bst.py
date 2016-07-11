@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-
-import Queue
-
 class Node(object):
     def __init__(self, data=None, left=None, right=None):
         self.data = data
@@ -137,27 +133,6 @@ class BinarySearchTree(object):
                 return node.data
             else:
                 return self.get_max(node.right)
-
-
-    def level_order_traversal(self):
-        """Perform a BFS or level-order traversal of the tree."""
-        if self.root is None:
-            print "Tree is empty."
-        else:
-            my_q = Queue.Queue()
-            nd = self.root
-            
-            # Insert the root element into the Queue.
-            my_q.put(nd)
-
-            while not my_q.empty():
-                current = my_q.get()
-
-                print "%d " % current.data,
-                if current.left is not None:
-                    my_q.put(current.left)
-                if current.right is not None:
-                    my_q.put(current.right)
 
 
     def level_width(self, node, k):

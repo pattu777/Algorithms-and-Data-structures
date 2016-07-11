@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-import sys
 import unittest
 
 from bst import Node, BinarySearchTree
@@ -63,16 +62,6 @@ class BstTest(unittest.TestCase):
         self.tree.inorder(self.tree.get_root())
         """
 
-    def test_level_order_traversal(self):
-        pass
-        """
-        print "Level order traversal of first tree."
-        self.tree.level_order_traversal()
-        
-        print "Level order traversal of second tree."
-        self.bst.level_order_traversal()
-        """
-
     def test_max_width(self):
         pass
         """
@@ -91,9 +80,16 @@ class BstTest(unittest.TestCase):
 
         self.assertTrue(self.tree.get_root(), self.tree2.get_root())
 
+    def test_level_order_traversal(self):
+        print "Level order traversal of first tree."
+        level_order_traversal(self.tree)
+        
+        print "Level order traversal of second tree."
+        level_order_traversal(self.bst)
+        
     def test_leafcount(self):
         self.assertEqual(self.tree.count_leafs(self.tree.get_root()), 3)
 
 if __name__ == '__main__':
     unittest.main()
-    sys.exit(0)
+    
