@@ -3,7 +3,8 @@
 import sys
 import unittest
 
-from linkedlist import Node, LinkedList, merge_lists
+from linkedlist import Node, LinkedList
+from problems import *
 
 class LinkedTestClass(unittest.TestCase):
     def __init__(self, *args, **kwargs):

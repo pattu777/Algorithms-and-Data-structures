@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# This is a adjacency list representation of a directed graph.
+# This is an adjacency list representation of a directed graph.
 
 import sys
 
