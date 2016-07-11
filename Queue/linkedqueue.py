@@ -24,21 +24,20 @@ class Queue(object):
             self.rear = nd
 
     def get(self):
-        if self.front is None:
+        if self.front is None and self.rear is None:
             print "Queue is empty."
         else:
-            nd = self.front
-            self.front = self.front.next_node
-            while self.front is None:
+            data = self.front.data
+            if self.front == self.rear:
+                self.front = None
                 self.rear = None
+            else:
+                self.front = self.front.next_node
 
-            print nd.data
+            print data
 
     def is_empty(self):
-        return self.front is None
-
-    def is_full(self):
-        return self.rear is not None and self.front == self.rear
+        return self.front is None and self.rear is None
 
 
 if __name__ == '__main__':
