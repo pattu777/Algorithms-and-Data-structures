@@ -241,7 +241,11 @@ class LinkedList(object):
             
 
     def is_pallindrome(self):
-        """Check if the linked list is a pallindrome or not."""
+        """
+        Check if the linked list is a pallindrome or not.
+
+        Status: Incomplete
+        """
         if self.head is None:
             return True
         else:

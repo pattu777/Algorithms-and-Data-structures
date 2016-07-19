@@ -16,27 +16,27 @@ class HashTable(object):
 
     def put(self, key, value):
         """Insert a key, value pair into the hash table."""
-	item = Item(key, value)
+        item = Item(key, value)
         hash_index = self.hash_function(key)
-	for x in self.arr[hash_index]:
-	    if x == key:
-		x.value = value
-		return
-	self.arr[hash_index].append(item)
+        for x in self.arr[hash_index]:
+            if x == key:
+                x.value = value
+                return
+        self.arr[hash_index].append(item)
 
     def get(self, key):
         """Retrieve a value for a given key from the hash table."""
-	hash_index = self.hash_function(key)
-	for x in self.arr[hash_index]:
-	    if x.key == key:
-		return x.value
-	return None
+        hash_index = self.hash_function(key)
+        for x in self.arr[hash_index]:
+            if x.key == key:
+                return x.value
+        return None
 
     def remove(self, key):
         """Remove a key, value pair from the map."""
         hash_index = self.hash_function(key)
-	if len(self.arr[hash_index]) != 0:
-	    for i, x in enumerate(self.arr[hash_index]):
-		if x.key == key:
-		    self.arr[hash_index].pop(i)
-		    return
+        if len(self.arr[hash_index]) != 0:
+            for i, x in enumerate(self.arr[hash_index]):
+                if x.key == key:
+                    self.arr[hash_index].pop(i)
+                    return
