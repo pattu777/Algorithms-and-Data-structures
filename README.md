@@ -1,71 +1,47 @@
 # Algorithms-and-Data-structures
-Solution to common data structure problems in Python
+Solution to common data structure problems in Python. I have also added as much unit tests as possible. For unit testing, I have used `unittest` and `nose` modules in Python.
 
-## Linked List
-* Insert an element at the head.
-* Insert an element at tail.
-* Remove an element from the head.
-* Remove an element from tail.
-* Search if an element is present in the linked list.
-* Reverse the singly linked list.
-* Display all the elements.
-* Get the middle element.
-* Count the number of elements.
-* Left rotate the list by n items.
-* Detect a loop.
-* Circular linked list
-    * Insertion.
-    * Traversal.
-* Doubly Linked List
-    * Insert at the front of the list.
-    * Insert at the end of the list.
-    * Display all the items.
-    * Reverse the list.
-    * Remove an item from the list.
+## Data structures
+* Stack
+* Queue
+* Linked list
+  * Singly linked list
+  * Doubly linked list
+  * Circular linked list
+* Tree
+  * Binary search tree
+  * Trie
+* Hash table
 
-## Stack
-* Push an element.
-* Pop from the stack.
-* Fetch the top item.
-* Get the number of items in the stack.
+# Algorithms
+* Searching
+  * Linear Search
+  * Binary Search
+* Sorting
+  * Bubble sort
+  * Insertion sort
+  * Selection sort
+  * Merge sort
+  * Quicksort
+* Backtracking problems
+* Divide and Conquer
+* Recursion
+* Greedy
 
-## Queue
-* Enqueue an element.
-* Dequeue.
-* Get the front item.
-* Get the rear item.
+# SQL
+SQL queries for problems on [sql-ex.ru](sql-ex.ru).
 
-## Binary Search Tree
-* Iteratively insert an element.
-* Remove an element from the binary search tree.
-* Iteratively and recursively search an element.
-* Get the number of elements of the tree.
-* Find the maximum depth of the tree.
-* Get the minimum and maximum element from the binary search tree.
-* Traversal techniques.
-  * Breadth First Traversal
-      * Level-Order Traversal using Queue
-  * Depth First Traversal
-      * Inorder
-      * Pre-order
-      * Post-order
-* Print all nodes at a distance `k` from the root.
+# Resources
+* Cracking the coding interview
+* Algorithm Design Manual
+* [sql-ex.ru](sql-ex.ru)
+* [https://github.com/donnemartin/interactive-coding-challenges](https://github.com/donnemartin/interactive-coding-challenges)
+* [https://github.com/prakhar1989/Algorithms](https://github.com/prakhar1989/Algorithms)
+* Geeksforgeeks
 
-## Hash Table
-* Insert a key, value pair.
-* Get value for a specific key from the hash map.
+## Contributing
+If you find any errors or write some new unit tests, just create your own branch and send a pull request.
 
-## Trie
-* Insert a word.
-* Search if a word is present in a trie.
+## Note
+If you need more explanation, I have written some blog posts on my website about some data structures. Visit [chinmayapatanaik.com](chinmayapatanaik.com).
 
-## Searching
-* Linear Search
-* Binary Search
-
-## Sorting
-* Bubble sort
-* Insertion sort
-* Selection sort
-* Merge sort
-* Quicksort
