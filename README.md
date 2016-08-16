@@ -40,8 +40,5 @@ SQL queries for problems on [sql-ex.ru](sql-ex.ru).
 * Geeksforgeeks
 
 ## Contributing
-If you find any errors or write some new unit tests, just create your own branch and send a pull request.
-
-## Note
-If you need more explanation, I have written some blog posts on my website about some data structures. Visit [chinmayapatanaik.com](chinmayapatanaik.com).
+I am learning Python and TDD. So if you notice any issues with the code or unit tests, please let me know. Also if you want to contribute, just create your own branch and send a pull request.
 
