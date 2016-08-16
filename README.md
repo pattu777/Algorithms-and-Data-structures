@@ -1,28 +1,28 @@
 # Algorithms-and-Data-structures
-Solution to common data structure problems in Python. I have also added as much unit tests as possible. For unit testing, I have used `unittest` and `nose` modules in Python.
+Common data structure and algorithms implemented in Python. Previously I wrote them as separate Python scripts. But once I discovered jupyter notebooks, there's no going back. I have also added as much unit tests as possible. For unit testing, I have used `unittest` and `nose` modules in Python.
 
 ## Data structures
 * Stack
 * Queue
 * Linked list
-  * Singly linked list
-  * Doubly linked list
-  * Circular linked list
+ * Singly linked list
+ * Doubly linked list
+ * Circular linked list
 * Tree
-  * Binary search tree
-  * Trie
+ * Binary search tree
+ * Trie
 * Hash table
 
 # Algorithms
 * Searching
-  * Linear Search
-  * Binary Search
+ * Linear Search
+ * Binary Search
 * Sorting
-  * Bubble sort
-  * Insertion sort
-  * Selection sort
-  * Merge sort
-  * Quicksort
+ * Bubble sort
+ * Insertion sort
+ * Selection sort
+ * Merge sort
+ * Quicksort
 * Backtracking problems
 * Divide and Conquer
 * Recursion
