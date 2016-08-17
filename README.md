@@ -15,8 +15,9 @@ Common data structure and algorithms implemented in Python. Previously I wrote t
 
 # Algorithms
 * [Searching](https://github.com/pattu777/Algorithms-and-Data-structures/blob/master/Algorithms/Searching%20Techniques.ipynb)
- * Linear Search
- * Binary Search
+ * Linear search
+ * Binary search
+ * Ternary search
 * [Sorting](https://github.com/pattu777/Algorithms-and-Data-structures/blob/master/Algorithms/Sorting.ipynb)
  * Bubble sort
  * Insertion sort
